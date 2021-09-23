@@ -1,0 +1,93 @@
+/* scrollbar styles */
+.scrollbar-width-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-width-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* spinner styles */
+.spinner-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #f03355 95%, #0000) 50% 1px/12px
+      12px no-repeat,
+    radial-gradient(farthest-side, #0000 calc(100% - 14px), #ccc 0);
+  animation: spinner 1s infinite linear;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* shimmer! */
+.shimmer-gradient {
+  animation-duration: 1.8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #fdfdfd 7%,
+    #e0e0e0 14%,
+    #fdfdfd 21%,
+    #ffffff 28%
+  );
+  position: relative;
+  background-size: 400% auto;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: left 28% bottom 0%;
+  }
+  100% {
+    background-position: right 128% bottom 0%;
+  }
+}
+
+/* loading spinner */
+.loader {
+  border: 0.25em solid #f3f3f3;
+  border-top: 0.25em solid #f03355;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    .scroll-snap-none {
+      scroll-snap-type: none;
+    }
+    .scroll-snap-x {
+      scroll-snap-type: x;
+    }
+    .scroll-snap-y {
+      scroll-snap-type: y;
+    }
+  }
+}
