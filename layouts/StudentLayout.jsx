@@ -22,7 +22,7 @@ const StudentLayout = ({ children, siteTitle }) => {
 
   useEffect(() => {
     if (!verifyLoading && verifyError) {
-      dispatch(addError(assignErrorMessage(error)));
+      dispatch(addError(assignErrorMessage(verifyError)));
       redirect("/users/login");
     }
   }, [verifyError, verifyLoading]);
