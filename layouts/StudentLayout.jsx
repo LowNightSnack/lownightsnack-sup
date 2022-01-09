@@ -17,7 +17,7 @@ const sidenavLinks = [
 ];
 
 const StudentLayout = ({ children, siteTitle }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
   const { verifyError, verifyLoading, verifyMutate } = useVerify();
 
   useEffect(() => {
