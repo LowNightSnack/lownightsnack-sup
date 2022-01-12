@@ -127,7 +127,7 @@ const Login = () => {
     }
   }, [verifyUser]);
 
-  if (!verifyLoading)
+  if (!verifyLoading && !verifyUser)
     return (
       <LoginLayout siteTitle={siteTitle}>
         <div className="h-full flex flex-col items-center bg-gray-200 justify-center">
