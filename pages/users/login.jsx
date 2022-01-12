@@ -70,6 +70,7 @@ const inputFields = [
 
 const Login = () => {
   const [highlightObject, setHighlightObject] = useState({});
+  const [loginLoading, setLoginLoading] = useState(false);
   const { verifyUser, verifyLoading, verifyError, verifyMutate } = useVerify();
   const dispatch = useDispatch();
 
@@ -89,7 +90,9 @@ const Login = () => {
     if (warnings) setHighlightObject(warnings);
     else
       try {
+        setLoginLoading(true);
         const result = await login(username, password);
+        setLoginLoading(false);
         const errors = validateLoginResponse(result);
         if (errors) setHighlightObject(errors);
         else {
@@ -123,7 +126,8 @@ const Login = () => {
       else dispatch(addError("Severe Security flaw found?"));
     }
   }, [verifyUser]);
-  if (verifyError)
+
+  if (!verifyLoading)
     return (
       <LoginLayout siteTitle={siteTitle}>
         <div className="h-full flex flex-col items-center bg-gray-200 justify-center">
@@ -131,6 +135,7 @@ const Login = () => {
             onLogin={onLogin}
             highlightObject={highlightObject}
             inputFields={inputFields}
+            loginLoading={loginLoading}
           />
           <nav>
             <CustomLink linkHref="/" linkText="home" />{" "}

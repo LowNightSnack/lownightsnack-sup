@@ -1,14 +1,12 @@
 import useSWR from "swr";
-import { cookieFetcher } from "../fetchers";
-import { verifyTokenKey } from "./swrKeys";
+import { verifyFetcher } from "../fetchers";
+import { verifyFetcherKey } from "./swrKeys";
 
 export default function useVerify() {
-  const { data, mutate, error } = useSWR(verifyTokenKey, cookieFetcher);
-  let user = data;
-  if (error) user = null;
+  const { data, mutate, error } = useSWR(verifyFetcherKey, verifyFetcher);
   const loading = !data && !error;
   return {
-    verifyUser: user,
+    verifyUser: !error ? data : null,
     verifyLoading: loading,
     verifyError: error,
     verifyMutate: mutate,

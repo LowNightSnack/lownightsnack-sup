@@ -1,5 +1,6 @@
-const verifyTokenKey = "verifyToken";
-
+const verifyFetcherKey = "verifyFetcher";
+const loginFetcherKey = "loginFetcher";
 module.exports = {
-  verifyTokenKey,
+  verifyFetcherKey,
+  loginFetcherKey,
 };

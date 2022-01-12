@@ -17,7 +17,7 @@ const sidenavLinks = [
 ];
 
 const StudentLayout = ({ children, siteTitle }) => {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const { verifyError, verifyLoading, verifyMutate } = useVerify();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const StudentLayout = ({ children, siteTitle }) => {
     verifyMutate(null);
   });
 
-  if (verifyLoading || verifyError) return <Spinner />;
+  if (verifyLoading) return <Spinner />;
 
   return (
     <Layout
