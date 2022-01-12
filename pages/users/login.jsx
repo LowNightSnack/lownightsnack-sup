@@ -101,6 +101,7 @@ const Login = () => {
         }
       } catch (e) {
         dispatch(addError(assignErrorMessage(e)));
+        setLoginLoading(false);
       }
   };
 
