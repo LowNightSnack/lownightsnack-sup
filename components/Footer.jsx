@@ -10,7 +10,7 @@ const Footer = () => {
           linkText="NIT Andhra Pradesh"
         />
         <br />
-        Made by Mamoor &#38; Rahul
+        Made by Mamoor
       </footer>
     </>
   );

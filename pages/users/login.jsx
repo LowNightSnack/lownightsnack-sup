@@ -71,7 +71,7 @@ const inputFields = [
 const Login = () => {
   const [highlightObject, setHighlightObject] = useState({});
   const [loginLoading, setLoginLoading] = useState(false);
-  const { verifyUser, verifyLoading, verifyError, verifyMutate } = useVerify();
+  const { verifyUser, verifyLoading, verifyMutate } = useVerify();
   const dispatch = useDispatch();
 
   const preLoginCleanup = useCallback(() => {
@@ -124,30 +124,29 @@ const Login = () => {
       if (verifyUser.type === "student") redirect("/student");
       else if (verifyUser.type === "teacher") redirect("/teacher");
       else if (verifyUser.type === "admin") redirect("/admin");
-      else dispatch(addError("Severe Security flaw found?"));
+      else dispatch(addError("Severe Security flaw found?!"));
     }
   }, [verifyUser]);
 
-  if (!verifyLoading && !verifyUser)
-    return (
-      <LoginLayout siteTitle={siteTitle}>
-        <div className="h-full flex flex-col items-center bg-gray-200 justify-center">
-          <LoginForm
-            onLogin={onLogin}
-            highlightObject={highlightObject}
-            inputFields={inputFields}
-            loginLoading={loginLoading}
-          />
-          <nav>
-            <CustomLink linkHref="/" linkText="home" />{" "}
-            <CustomLink linkHref="/student" linkText="student" />{" "}
-            <CustomLink linkHref="/teacher" linkText="teacher" />{" "}
-            <CustomLink linkHref="/dashboard" linkText="dashboard" />{" "}
-          </nav>
-        </div>
-      </LoginLayout>
-    );
-  return <Spinner />;
+  if (!!verifyLoading || !!verifyUser) return <Spinner />;
+  return (
+    <LoginLayout siteTitle={siteTitle}>
+      <div className="h-full flex flex-col items-center bg-gray-200 justify-center">
+        <LoginForm
+          onLogin={onLogin}
+          highlightObject={highlightObject}
+          inputFields={inputFields}
+          loginLoading={loginLoading}
+        />
+        <nav>
+          <CustomLink linkHref="/" linkText="home" />{" "}
+          <CustomLink linkHref="/student" linkText="student" />{" "}
+          <CustomLink linkHref="/teacher" linkText="teacher" />{" "}
+          <CustomLink linkHref="/dashboard" linkText="dashboard" />{" "}
+        </nav>
+      </div>
+    </LoginLayout>
+  );
 };
 
 export default Login;

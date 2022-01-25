@@ -32,18 +32,18 @@ const Layout = ({
         extendSidebarBool={extendSidebarBool}
         extendSidebar={handleExtendSidebar}
       />
-      <div className="main-view-wrapper h-full w-full flex flex-row overflow-hidden absolute">
-        <Sidebar
-          extendSidebarBool={extendSidebarBool}
-          sidenavLiks={sidenavLinks}
-        />
-        <div className="overflow-hidden flex flex-col h-full w-full">
-          <Navbar extendSidebar={handleExtendSidebar} onLogout={onLogout} />
+      <div className="main-view-wrapper h-full w-full flex flex-col overflow-hidden absolute">
+        <Navbar extendSidebar={handleExtendSidebar} onLogout={onLogout} />
+        <div className="overflow-hidden flex flex-row h-full w-full">
+          <Sidebar
+            extendSidebarBool={extendSidebarBool}
+            sidenavLiks={sidenavLinks}
+          />
           <DynamicScrollbar>
             <div className="p-10 text-2xl font-bold">{children}</div>
           </DynamicScrollbar>
-          <Footer />
         </div>
+        <Footer />
       </div>
     </>
   );
