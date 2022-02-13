@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const DynamicScrollbar = dynamic(
   () => import("../components/common/Scrollbar"),
@@ -13,11 +12,10 @@ const HomeLayout = ({ children, siteTitle }) => {
   return (
     <>
       <Header siteTitle={siteTitle} />
-      <div className="flex flex-col h-full w-full overflow-hidden">
-        <DynamicScrollbar>
-          <div className="text-xl">{children}</div>
-        </DynamicScrollbar>
-        <Footer />
+      <div className="h-screen w-full overflow-hidden">
+        <div className="scroll-snap-y h-screen overflow-auto scrollbar-background">
+          {children}
+        </div>
       </div>
     </>
   );

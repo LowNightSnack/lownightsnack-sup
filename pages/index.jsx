@@ -1,6 +1,7 @@
 import { Component } from "react";
 import CustomLink from "../components/common/CustomLink";
 import HomeLayout from "../layouts/HomeLayout";
+import Footer from "../components/Footer";
 
 const siteTitle = "'Sup? | Home";
 
@@ -9,8 +10,8 @@ class Home extends Component {
   render() {
     return (
       <HomeLayout siteTitle={siteTitle}>
-        <div className="flex flex-col h-full">
-          <div className="p-20 flex items-center bg-blue-700 text-white md:scroll-snap-x">
+        <div className="p-20 flex flex-col h-screen items-center bg-blue-700 text-white scroll-snap-start">
+          <div className="w-full flex-1 flex items-center">
             <svg
               className="w-16 h-16"
               xmlns="http://www.w3.org/2000/svg"
@@ -59,17 +60,35 @@ l105 -26 1121 -6 c1219 -5 1154 -2 1154 -61 0 -64 99 -60 -1481 -57 -1322 3
             </svg>
             <span className="text-5xl font-extrabold">'Sup?</span>
           </div>
+          <snap className="p-3 rounded-full transition-all hover:translate-y-2 hover:bg-opacity-20 hover:bg-white active:bg-opacity-30 animate-bounce">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
+              />
+            </svg>
+          </snap>
         </div>
-        <CustomLink linkHref="/users/login" linkText="Login" />{" "}
-        <CustomLink linkHref="/test" linkText="test" />{" "}
-        <CustomLink linkHref="/test1" linkText="test1" />{" "}
-        <CustomLink linkHref="/test2" linkText="test2" />{" "}
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo id
-          commodi deleniti provident dolore corrupti saepe, minima expedita?
-          Natus quam ut autem facere earum placeat cum enim dolores expedita!
-          Quaerat.
-        </p>
+        <div className="flex flex-col h-screen scroll-snap-start">
+          <div className="flex-1 flex justify-center items-center">
+            <p className="text-6xl">WIP</p>
+          </div>
+          <div className="text-2xl flex p-12 justify-between">
+            <CustomLink linkHref="/users/login" linkText="Login" />{" "}
+            <CustomLink linkHref="/test" linkText="test" />{" "}
+            <CustomLink linkHref="/test1" linkText="test1" />{" "}
+            <CustomLink linkHref="/test2" linkText="test2" />
+          </div>
+          <Footer />
+        </div>
       </HomeLayout>
     );
   }
