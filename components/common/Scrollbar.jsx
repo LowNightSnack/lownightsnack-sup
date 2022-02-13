@@ -105,7 +105,7 @@ const Scrollbar = ({ children, className, setHeight, ...props }) => {
   }, [clientHeight, scrollHeight, handleScroll]);
 
   useEffect(() => {
-    //this is handle the dragging on scroll-thumb
+    // handle the dragging on scroll-thumb
     const scrollHostElement = scrollHostRef.current;
     resizeObserver.current.observe(scrollHostElement);
     document.addEventListener("mousemove", handleDocumentMouseMove);
@@ -123,14 +123,16 @@ const Scrollbar = ({ children, className, setHeight, ...props }) => {
     <div className="scrollbar-wrapper h-full relative overflow-hidden ">
       <div
         ref={scrollHostRef}
-        className="overflow-auto h-full scrollbar-width-none mr-4"
+        className={`overflow-auto h-full scrollbar-width-none ${
+          !!showScrollbar ? " mr-4" : ""
+        }`}
         {...props}
       >
         {children}
       </div>
       <div
-        className={`scrollbar w-3 h-full right-0 bottom-0 bg-transparent absolute ${
-          !showScrollbar ? "hidden" : ""
+        className={`scrollbar w-3 h-full right-0 bottom-0 bg-transparent absolute${
+          !showScrollbar ? " hidden" : ""
         }`}
       >
         <div
