@@ -7,7 +7,7 @@ const Navbar = ({ extendSidebar = null, onLogout = null, navLinks = null }) => {
         {extendSidebar && (
           <button
             onClick={extendSidebar}
-            className="p-4 md:hidden focus:outline-none  hover:bg-gray-700 focus:bg-gray-700 duration-200"
+            className="p-4 md:hidden focus:outline-none hover:bg-gray-700 focus:bg-gray-700 duration-200"
           >
             <svg
               className="h-5 w-5"
