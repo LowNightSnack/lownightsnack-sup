@@ -63,8 +63,8 @@ const LoginForm = ({
       ))}
       <div className="flex justify-center">
         <button
-          className={`flex p-2 bg-blue-600 hover:bg-blue-500 duration-200 text-white rounded-md${
-            loginLoading ? " pointer-events-none bg-black" : ""
+          className={`flex justify-center p-2 w-20 bg-blue-600 hover:bg-blue-500 duration-200 text-white rounded-md${
+            loginLoading ? " pointer-events-none bg-opacity-70" : ""
           }`}
           type="submit"
         >
