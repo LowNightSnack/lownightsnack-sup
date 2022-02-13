@@ -128,10 +128,19 @@ const Login = () => {
     }
   }, [verifyUser]);
 
+  // remove this in prod
+  useEffect(() => {
+    dispatch(addWarning("Username, Password"));
+    dispatch(addWarning("student, student"));
+    dispatch(addWarning("teacher, teacher"));
+    dispatch(addWarning("hmmhmm, hmmhmm"));
+  });
+  // till here
+
   if (!!verifyLoading || !!verifyUser) return <Spinner />;
   return (
     <LoginLayout siteTitle={siteTitle}>
-      <div className="h-full flex flex-col items-center bg-gray-200 justify-center">
+      <div className="h-full flex flex-col items-center bg-gray-300 justify-center">
         <LoginForm
           onLogin={onLogin}
           highlightObject={highlightObject}
@@ -142,7 +151,7 @@ const Login = () => {
           <CustomLink linkHref="/" linkText="home" />{" "}
           <CustomLink linkHref="/student" linkText="student" />{" "}
           <CustomLink linkHref="/teacher" linkText="teacher" />{" "}
-          <CustomLink linkHref="/dashboard" linkText="dashboard" />{" "}
+          <CustomLink linkHref="/dashboard" linkText="404" />{" "}
         </nav>
       </div>
     </LoginLayout>

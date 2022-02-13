@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.coolGray,
+        white: "#f0f0f0",
+        black: "#0f0f0f",
+        gray: colors.gray,
         blue: colors.sky,
         red: colors.rose,
         pink: colors.fuchsia,
@@ -22,12 +24,12 @@ module.exports = {
     sans: ["Graphik", "sans-serif"],
     serif: ["Merriweather", "serif"],
   },
-  purge: [
+  content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false,
+  darkMode: false, // change to true later
   variants: {
     extend: {},
   },

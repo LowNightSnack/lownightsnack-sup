@@ -1,12 +1,31 @@
+@tailwind utilities;
+
 /* scrollbar styles */
+html {
+  color: #0f0f0f;
+  background-color: #f0f0f0;
+}
+
+input {
+  background-color: #f0f0f0;
+}
+
 .scrollbar-width-none {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .scrollbar-width-none::-webkit-scrollbar {
   display: none;
 }
 
+.scrollbar-background {
+  scrollbar-color: #000;
+}
+
+.scrollbar-background::-webkit-scrollbar {
+  scrollbar-color: #000;
+}
 /* spinner styles */
 .spinner-container {
   height: 100vh;
@@ -79,15 +98,19 @@
 }
 
 @layer utilities {
-  @variants responsive {
-    .scroll-snap-none {
-      scroll-snap-type: none;
-    }
-    .scroll-snap-x {
-      scroll-snap-type: x;
-    }
-    .scroll-snap-y {
-      scroll-snap-type: y;
-    }
+  .scroll-snap-none {
+    scroll-snap-type: none;
+  }
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+  }
+  .scroll-snap-y {
+    scroll-snap-type: y mandatory;
+  }
+  .scroll-snap-start {
+    scroll-snap-align: start;
+  }
+  .scroll-snap-center {
+    scroll-snap-align: center;
   }
 }
