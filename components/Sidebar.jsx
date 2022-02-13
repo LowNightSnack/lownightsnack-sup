@@ -7,7 +7,7 @@ const DynamicScrollbar = dynamic(() => import("./common/Scrollbar"), {
 
 const Sidebar = ({ extendSidebarBool, sidenavLiks = [] }) => {
   let sidebarClasses =
-    "sidebar z-50 bg-blue-800 top-14 w-64 lg:w-80 text-blue-100 md:top-0 flex-shrink-0 md:sticky space-y-6  absolute inset-y-0 left-0 md:relative md:translate-x-0 transition duration-200 ease-in-out";
+    "sidebar z-50 bg-blue-800 top-14 w-64 lg:w-80 text-blue-100 md:top-0 flex-shrink-0 md:sticky space-y-6 absolute inset-y-0 left-0 md:relative md:translate-x-0 transition duration-200 ease-in-out";
   if (!extendSidebarBool) sidebarClasses += " transform -translate-x-full";
   return (
     <>
